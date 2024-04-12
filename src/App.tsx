@@ -33,9 +33,10 @@ function App() {
 
   return (
     <>
+    <div className='loading-align-center'> {user_data.length===0 && <>No Data Available</>}</div>
     <div className='loading-align-center'> {isLoading && <>Loading...</>}</div>
     <div className='user-cards-wrapper-container' style={isLoading?{opacity:0.4}:{}}>
-      <div className='user-cards-container'>
+      <div data-testid="user-cards-container-component" className='user-cards-container'>
         {user_data.map((user:IUserDataItem) => (
           <UserCard key={`${user.avatar}${user.email}`} user={user} />
         ))}
